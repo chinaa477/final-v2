@@ -1,6 +1,5 @@
 backend:
-  name: github
-  repo: chinaa477/housefullevents-v2
+  name: git-gateway
   branch: main
 
 local_backend: true
