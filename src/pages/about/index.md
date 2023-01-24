@@ -1,7 +1,7 @@
 ---
 templateKey: about-page
 title: About
-heading: About us
+heading: About us sss
 subheading: Our values, mission and culture
 team:
   - name: Courtney Henry
