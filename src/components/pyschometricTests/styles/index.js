@@ -1,0 +1,1 @@
+export {default as StyledProductFeatures} from './productFeatures'

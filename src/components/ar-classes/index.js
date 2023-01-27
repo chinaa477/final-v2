@@ -1,0 +1,1 @@
+export { default as FeatureDetails } from './FeatureDetails';
