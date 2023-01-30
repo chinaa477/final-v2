@@ -24,6 +24,14 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      // keep as first gatsby-source-filesystem plugin for gatsby image support
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/static/img`,
+        name: "uploads",
+      },
+    },
     `gatsby-plugin-image`,
     {
       resolve: 'gatsby-plugin-sharp',
@@ -107,6 +115,6 @@ module.exports = {
         includeInDevelopment: false,
       },
     },
-    `gatsby-plugin-netlify-cms`
+    `gatsby-plugin-netlify-cms`,
   ],
 }
