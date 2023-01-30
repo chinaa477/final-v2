@@ -2,6 +2,9 @@
   "name": "gatsby-starter-netlify-tailwind",
   "description": "A Gatsby + Netlify CMS + TailwindCSS Starter",
   "version": "1.1.0",
+  "engines": {
+   "node": ">=18.10.0"
+  },
   "author": "Emmanuel Gautier <npm@emmanuelgautier.fr>",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "6.2.1",
