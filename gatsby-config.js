@@ -16,7 +16,6 @@ module.exports = {
     THE_FLAG: false,
   },
   plugins: [
-    `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     {
@@ -101,5 +100,6 @@ module.exports = {
         includeInDevelopment: false,
       },
     },
+    "gatsby-plugin-netlify-cms",
   ],
 }
