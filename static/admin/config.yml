@@ -19,8 +19,8 @@ collections:
     folder: content/blog
     create: true
     slug: "{{slug}}"
-    media_folder: ''
-    public_folder: ''
+    media_folder: 'static/img'
+    public_folder: '/img'
     fields:
       - {
           label: "Template Key",
