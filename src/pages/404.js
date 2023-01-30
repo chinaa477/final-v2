@@ -1,11 +1,14 @@
-import React from "react"
-import { Main } from '@layout';
+import { GatsbySeo } from 'gatsby-plugin-next-seo'
+import React from 'react'
+
+import Layout from '../components/Layout'
 
 const NotFoundPage = () => (
-  <Main>
-    <h1>NOT FOUND</h1>
+  <Layout>
+    <GatsbySeo title="404: Not found" />
+    <h1>404: Not Found</h1>
     <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </Main>
+  </Layout>
 )
 
 export default NotFoundPage

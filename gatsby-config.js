@@ -1,105 +1,190 @@
+const siteUrl = 'https://gatsby-starter-netlify-tailwind.netlify.app/'
+const title = 'Gatsby Starter Netlify Tailwind'
+const description =
+  'This repo contains an example blog website that is built with Gatsby, and Netlify CMS.It follows the JAMstack architecture by using Git as a single source of truth, and Netlify for continuous deployment, and CDN distribution.'
+const logo = '/img/logo.png'
+const srcLogo = 'src/images/gatsby-icon.png'
+const color = '#433e85'
+const social = {
+  twitter: 'gautier_manu',
+  instagram: '',
+  youtube: '',
+  github: 'emmanuelgautier',
+  linkedin: 'emmanuelgautier1',
+}
+const gtagId = 'G-V165P2CKRK'
+
 module.exports = {
   siteMetadata: {
-    title: `Erudex`,
-    titleTemplate: "%s · Make Learning Personal",
-    description: `Find all the help you need to learn or teach online`,
-    author: `Erudex`,
-    language: "en",
-    image: `src/images/erudex-logo.jpg`,
-    siteUrl: `https://erudex.com`,
-    og: {
-      siteName: "Erudex - India's Most Teacher-Friendly Ed-tech Platform",
-      twitterUsername: '@weareerudex',
-    },
-  },
-  flags: {
-    THE_FLAG: false,
+    siteUrl,
+    logo,
+    title,
+    description,
+    color,
+    social,
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-image`,
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-postcss',
     {
-      resolve: 'gatsby-plugin-sharp',
+      resolve: 'gatsby-source-filesystem',
       options: {
-        defaults: {
-          quality: 70,
-          formats: ['auto', 'webp', 'avif'],
-          placeholder: 'tracedSVG',
+        path: `${__dirname}/static/img`,
+        name: 'uploads',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content`,
+        name: 'pages',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/src/images`,
+        name: 'images',
+      },
+    },
+    `gatsby-plugin-image`,
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          {
+            resolve: 'gatsby-remark-relative-images',
+            options: {
+              staticFolderName: 'static',
+            },
+          },
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              // It's important to specify the maxWidth (in pixels) of
+              // the content container as this plugin uses this as the
+              // base for generating different widths of each image.
+              maxWidth: 2048,
+
+              linkImagesToOriginal: true,
+              loading: 'lazy',
+              showCaptions: true,
+              disableBgImage: true,
+              withWebp: true,
+            },
+          },
+          {
+            resolve: 'gatsby-remark-copy-linked-files',
+            options: {
+              destinationDir: 'static',
+            },
+          },
+          'gatsby-remark-smartypants',
+        ],
+      },
+    },
+    'gatsby-plugin-catch-links',
+    {
+      resolve: 'gatsby-plugin-netlify-cms',
+      options: {
+        modulePath: `${__dirname}/src/cms/cms.js`,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-next-seo',
+      options: {
+        title,
+        language: 'en',
+        description,
+        canonical: siteUrl,
+        openGraph: {
+          type: 'website',
+          locale: 'en_US',
+          url: siteUrl,
+          description,
+          title,
+          site_name: title,
+        },
+        twitter: {
+          site: social.twitter,
+          cardType: 'summary_large_image',
         },
       },
     },
-    `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.edges.map(edge => {
+                return Object.assign({}, edge.node.frontmatter, {
+                  description: edge.node.frontmatter.description,
+                  date: edge.node.frontmatter.date,
+                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  custom_elements: [{ 'content:encoded': edge.node.html }],
+                })
+              })
+            },
+            query: `
+              {
+                allMarkdownRemark(
+                  sort: { order: DESC, fields: [frontmatter___date] }
+                  filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
+                ) {
+                      edges {
+                      node {
+                      html
+                      fields { slug }
+                      frontmatter {
+                      title
+                        description
+                        date
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: '/rss.xml',
+            title: 'Blog RSS Feed',
+          },
+        ],
+      },
+    },
+    'gatsby-plugin-sitemap',
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [gtagId],
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: title,
+        short_name: title,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#ffffff`,
+        theme_color: color,
         display: `minimal-ui`,
-        icon: `src/images/fav.png`, // This path is relative to the root of the site.
+        icon: srcLogo,
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    `gatsby-plugin-offline`,
-    {
-      resolve: `gatsby-plugin-postcss`,
-      options: {
-        postCssPlugins: [require("tailwindcss"), require("autoprefixer")],
-      },
-    },
-    {
-      resolve: `gatsby-plugin-sass`,
-      options: {
-        postCssPlugins: [require("tailwindcss")],
-      },
-    },
-    {
-      resolve: `gatsby-plugin-purgecss`,
-      options: {
-        printRejected: false,
-        develop: false,
-        tailwind: true,
-        purgeOnly: [`src/styles/globals.css`],
-      },
-    },
-    {
-      resolve: `gatsby-plugin-emotion`,
-      options: {
-        // Accepts the following options, all of which are defined by `@emotion/babel-plugin` plugin.
-        // The values for each key in this example are the defaults the plugin uses.
-      },
-    },
-    {
-      resolve: `gatsby-plugin-alias-imports`,
-      options: {
-        alias: {
-          '@common': 'src/components/common',
-          '@layout': 'src/components/layout',
-          '@home': 'src/components/home',
-          '@virtualLab': 'src/components/virtualLab',
-          '@pyschometricTests': 'src/components/pyschometricTests',
-          '@arClasses': 'src/components/ar-classes',
-          '@eduaccess': 'src/components/eduaccess',
-        },
-        extensions: [
-          "js",
-        ],
-      }
-    },
-    {
-      resolve: "gatsby-plugin-google-tagmanager",
-      options: {
-        id: "GTM-5KKBRTG",
-
-        // Include GTM in development.
-        //
-        // Defaults to false meaning GTM will only be loaded in production.
-        includeInDevelopment: false,
-      },
-    },
-    "gatsby-plugin-netlify-cms",
   ],
 }
