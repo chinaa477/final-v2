@@ -16,30 +16,8 @@ module.exports = {
     THE_FLAG: false,
   },
   plugins: [
-    {
-      // keep as first gatsby-source-filesystem plugin for gatsby image support
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/static/img`,
-        name: "uploads",
-      },
-    },
-    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-netlify-cms`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `netlifycms`,
-        path: `${__dirname}/static`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
+    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     {
       resolve: 'gatsby-plugin-sharp',
