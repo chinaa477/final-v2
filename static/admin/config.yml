@@ -52,8 +52,8 @@ collections:
     name: home
     files:
       - label: Banner
-        name: homeBanner
-        file: "content/home"
+        name: 'banner'
+        file: "src/home/banner.md"
         public_folder: "../img"
         fields:
           - label: Services
@@ -62,34 +62,7 @@ collections:
             fields:
               - { label: Title, name: title }
               - { label: Image, name: image, widget: image }
-      - label: Services
-        name: homeServices
-        file: "content/home/services.md"
-        public_folder: "../img"
-        fields:
-          - { label: Title, name: title }
-          - { label: Description, name: description }
-          - label: Services
-            name: services
-            widget: list
-            fields:
-              - { label: Title, name: title }
-              - { label: Image, name: image, widget: image }
-      - label: Clients
-        name: homeClients
-        file: "contenthome/clients.md"
-        public_folder: "../img"
-        fields:
-          - { label: Title, name: title }
-          - { label: Description, name: description }
-          - label: Clients
-            name: clients
-            widget: list
-            fields:
-              - { label: ID, name: id, widget: number }
-              - { label: Title, name: title }
-              - { label: Image, name: image, widget: image }
-      - label: Works
+      
         name: homeWorks
         file: "content/home/works.md"
         public_folder: "../img"
@@ -110,7 +83,6 @@ collections:
                 }
               - { label: Link, name: link }
               - { label: Image, name: image, widget: image }
-      - label: SEO
         name: homeSeo
         file: "content/home/seo.md"
         fields:
