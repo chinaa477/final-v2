@@ -70,7 +70,7 @@ const BlogPost = ({
             <h1 className="text-3xl leading-12 text-gray-800 lg:text-4xl lg:leading-14 mb-2">
               {title}
             </h1>
-            <p class="text-sm lg:text-base font-normal text-gray-600">Published {publishedDate}</p>
+            <p className="text-sm lg:text-base font-normal text-gray-600">Published {publishedDate}</p>
           </div>
         </header>
 
