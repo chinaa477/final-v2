@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 
 import Layout from '../components/Layout'
 import Banner from '../components/home/Banner'
+import About from '../components/home/About'
 
 const IndexPage = ({ data: { postsAllMarkdownRemark: { edges: posts } } }) => (
   <Layout>
@@ -13,9 +14,10 @@ const IndexPage = ({ data: { postsAllMarkdownRemark: { edges: posts } } }) => (
     <section>
       <div className='pt-32 grid grid-cols-1 items-center w-full mx-auto'>
         <Banner />
+        <About />
       </div>
     </section>
-    <div className="lg:flex space-x-0 lg:space-x-6 mb-16">
+    {/* <div className="lg:flex space-x-0 lg:space-x-6 mb-16">
       <div className="w-full lg:w-1/2">
         {posts.map(
           ({
@@ -50,7 +52,7 @@ const IndexPage = ({ data: { postsAllMarkdownRemark: { edges: posts } } }) => (
           )
         )}
       </div>
-    </div>
+    </div> */}
   </Layout>
 )
 
