@@ -54,17 +54,12 @@ collections:
       - label: banner
         name: banner
         file: "src/data/home/banner.json"
-        public_folder: "../img"
+        public_folder: "../img/home/banner/"
         fields:
-          - { label: Title, name: title }
-          - label: Customers
-            name: customers
+          - label: banner
+            name: banner
             widget: list
             fields:
-              - { label: id, name: id, widget: number }
-              - { label: Name, name: name }
-              - { label: Message, name: message }
-              - { label: Comment, name: comment }
-              - { label: Role, name: role }
-              - { label: Company, name: company }
+              - { label: Title, name: title }
+              - { label: Description, name: description }
               - { label: Image, name: image, widget: image }
