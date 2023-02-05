@@ -53,7 +53,8 @@ collections:
     files:
       - label: banner
         name: banner
-        file: "src/data/home/banner.json"
+        file: "content/home/banner.json"
+        media_folder: "static/img/"
         public_folder: "../img/home/banner/"
         fields:
           - label: banner
