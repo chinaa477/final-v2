@@ -51,10 +51,20 @@ collections:
   - label: index-page
     name: index
     files:
-      - label: Banner
-        name: homeBanner
+      - label: banner
+        name: banner
         file: "src/data/home/banner.json"
         public_folder: "../img"
         fields:
-          - { label: Description, name: description }
-          - { label: Image, name: image, widget: image }
+          - { label: Title, name: title }
+          - label: Customers
+            name: customers
+            widget: list
+            fields:
+              - { label: id, name: id, widget: number }
+              - { label: Name, name: name }
+              - { label: Message, name: message }
+              - { label: Comment, name: comment }
+              - { label: Role, name: role }
+              - { label: Company, name: company }
+              - { label: Image, name: image, widget: image }
