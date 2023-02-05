@@ -1,4 +1,25 @@
 {
   "description": "sample",
-  "image": "../img/apple-touch-icon.png"
+  "image": "../img/apple-touch-icon.png",
+  "title": "sample",
+  "customers": [
+    {
+      "id": 1,
+      "name": "sample",
+      "message": "sample",
+      "comment": "sample",
+      "role": "sample",
+      "company": "sample",
+      "image": "../img/1.jpg"
+    },
+    {
+      "id": 2,
+      "name": "sample",
+      "message": "sample",
+      "comment": "sample",
+      "role": "sample",
+      "company": "sample",
+      "image": "../img/2.jpg"
+    }
+  ]
 }
