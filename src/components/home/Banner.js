@@ -11,8 +11,8 @@ import slide5 from '../../images/banner/5.jpg'
 import slide6 from '../../images/banner/6.jpg'
 import slide7 from '../../images/banner/7.jpg'
 import slide8 from '../../images/banner/8.jpg'
-
-const data = [slide1, slide2, slide3, slide4, slide5, slide6, slide7, slide8]
+import bannerData from '../../../content/home/banner.json'
+const data = bannerData.banner;
 
 const sliderSettings = {
   slidesPerView: '1',
@@ -42,7 +42,7 @@ const Banner = () => {
               <div
                 className="w-full h-[600px]"
                 style={{
-                  backgroundImage: `url(${data})`,
+                  backgroundImage: `url(${data.image})`,
                   backgroundPositionX: '58%, 58%',
                   backgroundPositionY: '11%, 11%',
                   backgroundSize: 'cover, cover',
@@ -58,7 +58,7 @@ const Banner = () => {
               data-swiper-parallax={"23%"}
               className="slider-bg absolute top-0 left-0 w-full h-[600px]"
               style={{
-                backgroundImage: `url(${data})`,
+                backgroundImage: `url(${data.image})`,
                 backgroundPosition: 'center',
                 backgroundSize: 'cover'
               }}
