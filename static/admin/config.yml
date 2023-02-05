@@ -54,7 +54,7 @@ collections:
       - label: banner
         name: banner
         file: "content/home/banner.json"
-        media_folder: "../img/"
+        media_folder: "../../static/img"
         public_folder: "../img/home/banner/"
         fields:
           - label: banner
