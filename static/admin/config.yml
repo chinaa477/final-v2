@@ -53,7 +53,7 @@ collections:
     files:
       - label: Banner
         name: homeBanner
-        file: "src/data/home/banner.md"
+        file: "src/data/home/banner.json"
         public_folder: "../img"
         fields:
           - { label: Description, name: description }
