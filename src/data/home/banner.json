@@ -1,27 +1,4 @@
 {
-  "description": "sample",
-  "image": "../img/apple-touch-icon.png",
-  "title": "sample",
-  "customers": [
-    {
-      "id": 1,
-      "name": "sample",
-      "message": "sample",
-      "comment": "sample",
-      "role": "sample",
-      "company": "sample",
-      "image": "../img/1.jpg"
-    },
-    {
-      "id": 2,
-      "name": "sample",
-      "message": "sample",
-      "comment": "sample",
-      "role": "sample",
-      "company": "sample",
-      "image": "../img/2.jpg"
-    }
-  ],
   "banner": [
     {
       "title": "House Full Events​ - Corporate Functions",
@@ -60,6 +37,11 @@
     },
     {
       "title": "House Full Management Services - Hospitality Management Solutions",
+      "description": "We take care of it all so that you can focus on the important things. We pride ourselves on being the best there is.",
+      "image": "../img/home/banner/8.jpg"
+    },
+    {
+      "title": "House Full Management Services - Hospitality Management Solutionssss",
       "description": "We take care of it all so that you can focus on the important things. We pride ourselves on being the best there is.",
       "image": "../img/home/banner/8.jpg"
     }
