@@ -53,7 +53,7 @@ collections:
     files:
       - label: Banner
         name: homeBanner
-        file: "content/home/banner.md"
+        file: "content/home"
         public_folder: "../img"
         fields:
           - label: Services
