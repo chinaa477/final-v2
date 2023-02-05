@@ -1,9 +1,14 @@
 {
   "banner": [
     {
-      "title": "sample wssss",
+      "title": "sample",
       "description": "sample",
       "image": "../img/home/banner/1.jpg"
+    },
+    {
+      "title": "sample",
+      "description": "sample",
+      "image": "../img/home/banner/2.jpg"
     }
   ]
 }
