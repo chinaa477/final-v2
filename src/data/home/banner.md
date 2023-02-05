@@ -1,4 +1,4 @@
 ---
 description: sample
-image: https://via.placeholder.com/1280x600
+image: ../img/apple-touch-icon.png
 ---
