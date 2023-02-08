@@ -1,0 +1,44 @@
+{
+  "heading": "Our Services",
+  "subHeading": "ALL YOUR EVENTS TAKEN CARE OF",
+  "image": "../img/divider-free-img-1.png",
+  "paragraph": "We pride ourselves on handling everything for our clients. ",
+  "services": [
+    {
+      "title": "Wedding",
+      "image": "../img/kannada-weddings-e1590394961922-150x150.jpg"
+    },
+    {
+      "title": "Decoration",
+      "image": "../img/pandal3-150x150.jpg"
+    },
+    {
+      "title": "Groom & Bride makeup",
+      "image": "../img/hfen5-150x150.jpg"
+    },
+    {
+      "title": "Destination Weddings",
+      "image": "../img/x-converted-150x150.jpg"
+    },
+    {
+      "title": "Hospitality Management Solutions",
+      "image": "../img/consultant1-150x150.jpg"
+    },
+    {
+      "title": "Photography",
+      "image": "../img/hfef34-150x150.jpg"
+    },
+    {
+      "title": "Corporate events",
+      "image": "../img/corp-dinner-150x150.jpg"
+    },
+    {
+      "title": "Catering",
+      "image": "../img/hfem10-150x150.jpg"
+    },
+    {
+      "title": "Travel and Tourism",
+      "image": "../img/hfef36-150x150.jpg"
+    }
+  ]
+}
