@@ -3,14 +3,6 @@ import { Autoplay, EffectCreative, Parallax } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import "swiper/css/navigation";
-import slide1 from '../../images/banner/1.jpg'
-import slide2 from '../../images/banner/2.jpg'
-import slide3 from '../../images/banner/3.jpg'
-import slide4 from '../../images/banner/4.jpg'
-import slide5 from '../../images/banner/5.jpg'
-import slide6 from '../../images/banner/6.jpg'
-import slide7 from '../../images/banner/7.jpg'
-import slide8 from '../../images/banner/8.jpg'
 import bannerData from '../../../content/home/banner.json'
 const data = bannerData.banner;
 
