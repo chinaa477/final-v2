@@ -12,7 +12,8 @@ module.exports = {
         'muted': '#697B98',
         'dark-muted': '#001533',
         'pragraph-color': '#7895B2',
-        'red': '#EF4646'
+        'red': '#EF4646',
+        'dark': '#1c1d20',
       },
     },
   },

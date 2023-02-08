@@ -3,9 +3,9 @@ import CTA from "../common/CTA";
 
 const About = () => {
     return (
-        <section className="grid items-center container mx-auto md:px-32 px-5 md:py-10 py-8 md:gap-8 gap-16">
-            <div className="flex flex-wrap w-full items-center md:gap-8 gap-y-8">
-                <div className="md:w-1/3 w-full">
+        <section className="grid items-center container mx-auto md:px-32 px-5 md:py-10 py-8">
+            <div className="grid grid-cols-3 gap-4 items-center">
+                <div>
                     <div className="flex flex-col gap-y-10 items-center">
                         <img src="https://housefullevents.virajtechnologies.com/wp-content/uploads/2019/12/bbbq-free-img.png" />
                         <h2 className="text-3xl text-primary font-semibold">About Us</h2>
@@ -18,10 +18,10 @@ const About = () => {
                         <CTA name="RESERVATIONS" />
                     </div>
                 </div>
-                <div className="md:w-1/3 w-1/2 md:p-0 pr-2">
+                <div className="">
                     <img src="https://housefullevents.virajtechnologies.com/wp-content/uploads/2020/08/veg-fried-rice.jpg" />
                 </div>
-                <div className="md:w-1/3 w-1/2 md:p-0 pl-2">
+                <div className="">
                     <img src="https://housefullevents.virajtechnologies.com/wp-content/uploads/2019/12/hfe8.jpg" />
                 </div>
             </div>

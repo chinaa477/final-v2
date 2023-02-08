@@ -65,13 +65,16 @@ collections:
               - { label: Image, name: image, widget: image }
       - label: services
         name: services
-        file: "src/data/home/services.json"
-        public_folder: "../img/home/services/"
+        file: "content/home/services.json"
+        public_folder: "../img/"
         fields:
+          - { label: heading, name: heading }
+          - { label: sub heading, name: subHeading }
+          - { label: image, name: image, widget: image }
+          - { label: paragraph, name: paragraph }
           - label: services
             name: services
             widget: list
             fields:
               - { label: Title, name: title }
-              - { label: Description, name: description }
               - { label: Image, name: image, widget: image }
