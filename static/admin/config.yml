@@ -73,8 +73,8 @@ collections:
           - { label: sub heading 1, name: subHeadingOne }
           - { label: sub heading 2, name: subHeadingTwo }
           - { label: paragraph, name: paragraph }
-          - { label: Right Image One, name: image, widget: image }
-          - { label: Right Image Two, name: image, widget: image }
+          - { label: Right Image One, name: rightImageOne, widget: image }
+          - { label: Right Image Two, name: rightImageTwo, widget: image }
       - label: services
         name: services
         file: "content/home/services.json"
