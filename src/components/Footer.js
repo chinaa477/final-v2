@@ -1,104 +1,45 @@
 import React from 'react'
+import CTA from "./common/CTA"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faTwitter,
   faInstagram,
   faYoutube,
-  faGithub,
-  faLinkedin,
+  faLinkedinIn,
+  faFacebookF,
+  faPinterestP,
 } from '@fortawesome/free-brands-svg-icons'
-import { faRss } from '@fortawesome/free-solid-svg-icons'
 import { OutboundLink } from 'gatsby-plugin-google-gtag'
 
-import useSiteMetadata from '../queries/site-metadata'
-
 const Footer = () => {
-  const {
-    description,
-    social: { twitter, instagram, youtube, github, linkedin },
-  } = useSiteMetadata()
+  const today = new Date();
+  const year = today.getFullYear();
 
   return (
-    <footer className="border-t mt-4 lg:mt-12 py-2 lg:py-12 px-4 lg:px-0">
-      <div className="flex flex-wrap">
-        <div className="w-full lg:w-2/5">
-          <h6 className="font-semibold text-gray-700 mb-4">Project</h6>
-          <p className="text-gray-600 block p-0 lg:pr-12">{description}</p>
-        </div>
-
-        <div className="w-full mt-6 lg:mt-0 lg:w-1/2 lg:w-2/5">
-          <div className="p-4">
-            <h6 className="font-semibold text-gray-700 mb-4">Social</h6>
-            <ul>
-              <li>
-                <div className="flex justify-start items-center text-lg text-gray-500">
-                  {twitter && (
-                    <OutboundLink
-                      className="flex items-center hover:text-gray-700 mr-5"
-                      href={`https://twitter.com/${twitter}`}
-                      target="_blank"
-                      rel="noreferrer nofollow"
-                    >
-                      <FontAwesomeIcon icon={faTwitter} />
-                    </OutboundLink>
-                  )}
-
-                  {instagram && (
-                    <OutboundLink
-                      className="flex items-center hover:text-gray-700 mr-5"
-                      href={`https://www.instagram.com/${instagram}`}
-                      target="_blank"
-                      rel="noreferrer nofollow"
-                    >
-                      <FontAwesomeIcon icon={faInstagram} />
-                    </OutboundLink>
-                  )}
-
-                  {youtube && (
-                    <OutboundLink
-                      className="flex items-center hover:text-gray-700 mr-5"
-                      href={`https://www.youtube.com/channel/${youtube}`}
-                      target="_blank"
-                      rel="noreferrer nofollow"
-                    >
-                      <FontAwesomeIcon icon={faYoutube} />
-                    </OutboundLink>
-                  )}
-
-                  {github && (
-                    <OutboundLink
-                      className="flex items-center hover:text-gray-700 mr-5"
-                      href={`https://github.com/${github}`}
-                      target="_blank"
-                      rel="noreferrer nofollow"
-                    >
-                      <FontAwesomeIcon icon={faGithub} />
-                    </OutboundLink>
-                  )}
-
-                  {linkedin && (
-                    <OutboundLink
-                      className="flex items-center hover:text-gray-700 mr-5"
-                      href={`https://www.linkedin.com/company/${linkedin}`}
-                      target="_blank"
-                      rel="noreferrer nofollow"
-                    >
-                      <FontAwesomeIcon icon={faLinkedin} />
-                    </OutboundLink>
-                  )}
-
-                  <a
-                    href="/rss.xml"
-                    className="flex items-center hover:text-gray-700 mr-5"
-                    type="application/rss+xml"
-                    rel="alternate nofollow"
-                  >
-                    <FontAwesomeIcon icon={faRss} />
-                  </a>
-                </div>
-              </li>
-            </ul>
-          </div>
+    <footer className="grid items-center mx-auto md:px-32 px-5 md:pb-24 pb-10 md:pt-32 pt-8 bg-dark/75 contact-wrapper">
+      <div className="grid grid-cols gap-4 items-center">
+        <div className="flex flex-col gap-y-10 items-center">
+          <h2 className="text-6xl text-white text-center font-light">Let's Connect.</h2>
+          <img src="https://housefullevents.in/img/divider-free-img-1.png" alt="" />
+          <CTA name="BOOK US NOW"
+            border="border-primary"
+            color="text-primary"
+            textHover="hover:text-white"
+            bgHover="hover:bg-primary"
+          />
+          <h4 className="text-2xl font-medium text-white">
+            Or Call Us: <a href="tel:9488448575">9488448575</a>,
+            <a className="pl-2" href="tel:9003016500">9003016500</a>
+          </h4>
+          <ul className='grid grid-cols-6 gap-4 text-white text-lg'>
+            <li className='flex items-center justify-center p-4 w-12 h-12 rounded-full border-2 border-white border-dotted hover:bg-white hover:text-black'><OutboundLink href='twitter.com' target="_blank"><FontAwesomeIcon icon={faFacebookF} /></OutboundLink></li>
+            <li className='flex items-center justify-center p-4 w-12 h-12 rounded-full border-2 border-white border-dotted hover:bg-white hover:text-black'><OutboundLink href='twitter.com' target="_blank"><FontAwesomeIcon icon={faTwitter} /></OutboundLink></li>
+            <li className='flex items-center justify-center p-4 w-12 h-12 rounded-full border-2 border-white border-dotted hover:bg-white hover:text-black'><OutboundLink href='twitter.com' target="_blank"><FontAwesomeIcon icon={faInstagram} /></OutboundLink></li>
+            <li className='flex items-center justify-center p-4 w-12 h-12 rounded-full border-2 border-white border-dotted hover:bg-white hover:text-black'><OutboundLink href='twitter.com' target="_blank"><FontAwesomeIcon icon={faYoutube} /></OutboundLink></li>
+            <li className='flex items-center justify-center p-4 w-12 h-12 rounded-full border-2 border-white border-dotted hover:bg-white hover:text-black'><OutboundLink href='twitter.com' target="_blank"><FontAwesomeIcon icon={faLinkedinIn} /></OutboundLink></li>
+            <li className='flex items-center justify-center p-4 w-12 h-12 rounded-full border-2 border-white border-dotted hover:bg-white hover:text-black'><OutboundLink href='twitter.com' target="_blank"><FontAwesomeIcon icon={faPinterestP} /></OutboundLink></li>
+          </ul>
+          <small className='text-white'>COPYRIGHT © {year} HOUSEFULLEVENTS</small>
         </div>
       </div>
     </footer>

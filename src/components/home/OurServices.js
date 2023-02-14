@@ -18,7 +18,7 @@ const OurServices = () => {
                         {data.services.map((list, index) => (
                             <div className="grid grid-cols-2 items-center gap-4" key={`service-${index}`}>
                                 <div className="grid justify-end">
-                                    <img className="rounded-full shadow-lg" src={list.image} alt="" />
+                                    <img className="rounded-full shadow-2xl" src={list.image} alt="" />
                                 </div>
                                 <span className="text-3xl">{list.title}</span>
                             </div>

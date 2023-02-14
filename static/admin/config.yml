@@ -63,6 +63,18 @@ collections:
               - { label: Title, name: title }
               - { label: Description, name: description }
               - { label: Image, name: image, widget: image }
+      - label: about
+        name: about
+        file: "content/home/about.json"
+        public_folder: "../img/"
+        fields:
+          - { label: heading, name: heading }
+          - { label: Image, name: image, widget: image }
+          - { label: sub heading 1, name: subHeadingOne }
+          - { label: sub heading 2, name: subHeadingTwo }
+          - { label: paragraph, name: paragraph }
+          - { label: Right Image One, name: image, widget: image }
+          - { label: Right Image Two, name: image, widget: image }
       - label: services
         name: services
         file: "content/home/services.json"

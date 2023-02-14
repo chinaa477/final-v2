@@ -8,6 +8,8 @@ import Layout from '../components/Layout'
 import Banner from '../components/home/Banner'
 import About from '../components/home/About'
 import OurServices from '../components/home/OurServices'
+import Divider from '../components/home/Divider'
+import Contact from '../components/home/Contact'
 
 const IndexPage = ({ data: { postsAllMarkdownRemark: { edges: posts } } }) => (
   <Layout>
@@ -19,6 +21,8 @@ const IndexPage = ({ data: { postsAllMarkdownRemark: { edges: posts } } }) => (
     </section>
     <About />
     <OurServices />
+    <Divider />
+    <Contact />
     {/* <div className="lg:flex space-x-0 lg:space-x-6 mb-16">
       <div className="w-full lg:w-1/2">
         {posts.map(

@@ -15,7 +15,12 @@ const About = () => {
                         <p className="text-lg font-medium text-center">
                             We at House Full Events pride ourselves on providing the best in class event management services coupled with the delicious delicacies of South India. Our team of cooks and event coordinators with their years of experience in this field will guarantee all your requirements are satisfied and more.
                         </p>
-                        <CTA name="RESERVATIONS" />
+                        <CTA name="RESERVATIONS"
+                            border="border-primary"
+                            color="text-primary"
+                            textHover="hover:text-white"
+                            bgHover="hover:bg-primary"
+                        />
                     </div>
                 </div>
                 <div className="">
