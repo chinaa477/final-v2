@@ -1,6 +1,8 @@
 import React from "react"
 import serviceData from '../../../content/home/services.json'
 const data = serviceData;
+import divider from '../../images/divider.png'
+
 const OurServices = () => {
     return (
         <section className="service-list-wrapper">
@@ -8,7 +10,7 @@ const OurServices = () => {
                 <div className="header container mx-auto grid items-center justify-center text-center gap-8">
                     <h2 className="text-primary text-4xl">{data.heading}</h2>
                     <h3 className="text-white tracking-[.5em] text-lg font-medium">{data.subHeading}</h3>
-                    <img className="mx-auto" src={data.image} alt="" />
+                    <img className="mx-auto" src={divider} />
                     <p className="text-white opacity-90 italic text-sm">{data.paragraph}</p>
                 </div>
             </div>

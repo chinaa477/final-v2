@@ -82,7 +82,6 @@ collections:
         fields:
           - { label: heading, name: heading }
           - { label: sub heading, name: subHeading }
-          - { label: image, name: image, widget: image }
           - { label: paragraph, name: paragraph }
           - label: services
             name: services
