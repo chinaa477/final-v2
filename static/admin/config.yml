@@ -89,3 +89,18 @@ collections:
             fields:
               - { label: Title, name: title }
               - { label: Image, name: image, widget: image }
+  - label: about-page
+    name: about
+    files:
+      - label: banner
+        name: banner
+        file: "content/about-us/banner.json"
+        public_folder: "../img/"
+        fields:
+          - label: banner
+            name: banner
+            fields:
+              - { label: Heading, name: heading }
+              - { label: Title, name: title }
+              - { label: Description, name: description }
+              - { label: Video, name: video, widget: file }
