@@ -3,7 +3,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Palanquin', 'Open Sans', 'Helvetica', 'Arial', 'sans-serif'],
+        sans: ['Open Sans', 'Helvetica', 'Arial', 'sans-serif'],
       },
       colors: {
         'secondary': '#47B5FF',
