@@ -9,10 +9,10 @@ export default function Navbar() {
   const { title } = useSiteMetadata()
 
   return (
-    <header className="grid grid-template-columns[1fr minmax(min-content, max-content)] w-full py-5 z-10 fixed bg-white">
+    <header className="grid grid-template-columns[1fr minmax(min-content, max-content)] w-full py-5 z-20 fixed bg-white">
       <div className='md:(grid grid-cols-2) flex flex-row gap-x-3 text-center place-items-center container mx-auto md:px-12 px-5 justify-between'>
         <ul className="hidden lg:inline-flex items-center">
-          <li key="navbar-blog-index" className="px-2 lg:px-4">
+          <li className="px-2 lg:px-4">
             <Link
               to={`/`}
               className="text-gray-500 font-semibold hover:text-gray-700"
@@ -20,15 +20,15 @@ export default function Navbar() {
               Home
             </Link>
           </li>
-          <li key="navbar-blog-index" className="px-2 lg:px-4">
+          <li className="px-2 lg:px-4">
             <Link
-              to={`/blog`}
+              to={`/about-us`}
               className="text-gray-500 font-semibold hover:text-gray-700"
             >
               About Us
             </Link>
           </li>
-          <li key="navbar-blog-index" className="px-2 lg:px-4">
+          <li className="px-2 lg:px-4">
             <Link
               to={`/blog`}
               className="text-gray-500 font-semibold hover:text-gray-700"
@@ -36,7 +36,7 @@ export default function Navbar() {
               Services
             </Link>
           </li>
-          <li key="navbar-blog-index" className="px-2 lg:px-4">
+          <li className="px-2 lg:px-4">
             <Link
               to={`/blog`}
               className="text-gray-500 font-semibold hover:text-gray-700"
@@ -44,7 +44,7 @@ export default function Navbar() {
               Our Process
             </Link>
           </li>
-          <li key="navbar-blog-index" className="px-2 lg:px-4">
+          <li className="px-2 lg:px-4">
             <Link
               to={`/blog`}
               className="text-gray-500 font-semibold hover:text-gray-700"
@@ -52,7 +52,7 @@ export default function Navbar() {
               Gallery
             </Link>
           </li>
-          <li key="navbar-blog-index" className="px-2 lg:px-4">
+          <li className="px-2 lg:px-4">
             <Link
               to={`/blog`}
               className="text-gray-500 font-semibold hover:text-gray-700"

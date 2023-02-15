@@ -3,7 +3,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Open Sans', 'Helvetica', 'Arial', 'sans-serif'],
+        sans: ['Palanquin', 'Open Sans', 'Helvetica', 'Arial', 'sans-serif'],
       },
       colors: {
         'secondary': '#47B5FF',
@@ -14,6 +14,7 @@ module.exports = {
         'pragraph-color': '#7895B2',
         'red': '#EF4646',
         'dark': '#1c1d20',
+        'light': '#f7f7f7',
       },
     },
   },

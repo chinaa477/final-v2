@@ -7,12 +7,20 @@
     @apply bg-primary text-black;
 }
 
-.service-list-wrapper .bg-dark, .bg-gradient-1, .contact-wrapper {
+.service-list-wrapper .bg-dark,
+.bg-gradient-1,
+.contact-wrapper,
+.about-wrapper,
+.bg-gradient-2 {
     box-sizing: content-box;
     position: relative;
 }
 
-.service-list-wrapper .bg-dark:after, .bg-gradient-1:after, .contact-wrapper:after {
+.service-list-wrapper .bg-dark:after,
+.bg-gradient-1:after,
+.contact-wrapper:after,
+.about-wrapper:after,
+.bg-gradient-2:after {
     content: '';
     position: absolute;
     top: 0;
@@ -25,11 +33,24 @@
     border-right: 300px solid transparent;
 }
 
-.bg-gradient-1:after {
+.bg-gradient-1:after,
+.about-wrapper:after {
     top: auto;
     bottom: 0;
     border-bottom: 50px solid #fff;
-    border-top: 0 !important;
+    border-top: 50px !important;
+}
+
+.bg-gradient-2:after {
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    border-bottom: 50px solid #fff;
+    border-top: 50px solid #fff !important;
+}
+
+.about-wrapper:after {
+    border-block-color: #f7f7f7;
 }
 
 .divider svg {
@@ -43,7 +64,7 @@
 }
 
 .divider .elementor-shape-fill {
-    fill: rgba(190,206,97,.17);
+    fill: rgba(190, 206, 97, .17);
     -webkit-transform-origin: center;
     -ms-transform-origin: center;
     transform-origin: center;
@@ -53,6 +74,23 @@
 
 .bg-gradient-1 {
     background-color: transparent;
-    background-image: linear-gradient(250deg,rgba(29,29,35,.6) 0%,#000000 100%);
+    background-image: linear-gradient(250deg, rgba(29, 29, 35, .6) 0%, #000000 100%);
     opacity: .75;
+}
+
+.bg-gradient-2 {
+    background-color: transparent;
+    background-image: linear-gradient(180deg, #030026 0%, rgba(29, 29, 35, .3) 100%);
+    opacity: .8;
+}
+
+.background-overlay {
+    background-color: transparent;
+    background-image: linear-gradient(180deg, #030026 0%, #000000 100%);
+    opacity: .65;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
 }
