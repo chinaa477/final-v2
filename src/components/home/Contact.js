@@ -5,7 +5,7 @@ const Contact = () => {
     return (
         <>
             <section className="grid items-center mt-12 mx-auto md:px-32 px-5 md:pb-36 pb-10 md:pt-20 pt-8 bg-gradient-1">
-                <div className="grid grid-cols gap-4 items-center">
+                <div className="grid grid-cols gap-4 items-center z-10">
                     <div className="flex flex-col gap-y-10 items-center">
                         <div className="grid grid-cols-3 gap-12 items-center">
                             <div className="border-double border-white border-t-4 w-52"></div>

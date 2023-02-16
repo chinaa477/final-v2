@@ -61,6 +61,12 @@ exports.createPages = ({ actions, graphql }) => {
         `src/templates/about-us.js`
       )
     })
+    createPage({
+      path: '/services',
+      component: path.resolve(
+        `src/templates/services.js`
+      )
+    })
   })
 }
 

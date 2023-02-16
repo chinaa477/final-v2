@@ -30,7 +30,7 @@ export default function Navbar() {
           </li>
           <li className="px-2 lg:px-4">
             <Link
-              to={`/blog`}
+              to={`/services`}
               className="text-gray-500 font-semibold hover:text-gray-700"
             >
               Services
