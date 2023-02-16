@@ -129,3 +129,27 @@ collections:
         fields:
           - { label: Heading, name: heading }
           - { label: Description, name: description }
+  - label: services-page
+    name: services
+    files:
+      - label: banner
+        name: banner
+        file: "content/services/banner.json"
+        public_folder: "../img/"
+        fields:
+          - { label: Heading, name: heading }
+          - { label: Title, name: title }
+          - { label: Description, name: description }
+      - label: services
+        name: services
+        file: "content/services/services.json"
+        public_folder: "../img/"
+        fields:
+          - label: services
+            name: services
+            widget: list
+            fields:
+              - { label: Title, name: title }
+              - { label: Image, name: image, widget: image }
+              - { label: Description, name: description }
+              - { label: Link, name: link }
