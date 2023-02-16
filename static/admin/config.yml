@@ -114,3 +114,11 @@ collections:
             widget: list
             fields:
               - { label: Image, name: image, widget: image }
+      - label: about us
+        name: aboutUs
+        file: "content/about-us/about-us.json"
+        public_folder: "../img/"
+        fields:
+          - { label: Heading, name: heading }
+          - { label: Description, name: description }
+          - { label: File, name: file, widget: file }
