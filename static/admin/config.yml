@@ -122,3 +122,10 @@ collections:
           - { label: Heading, name: heading }
           - { label: Description, name: description }
           - { label: File, name: file, widget: file }
+      - label: core values
+        name: coreValues
+        file: "content/about-us/core-values.json"
+        public_folder: "../img/"
+        fields:
+          - { label: Heading, name: heading }
+          - { label: Description, name: description }
