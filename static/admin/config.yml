@@ -101,3 +101,16 @@ collections:
           - { label: Title, name: title }
           - { label: Description, name: description }
           - { label: Video, name: video, widget: file }
+      - label: our company
+        name: ourCompany
+        file: "content/about-us/our-company.json"
+        public_folder: "../img/"
+        fields:
+          - { label: Heading, name: heading }
+          - { label: Sub Heading, name: subHeading }
+          - { label: Description, name: description }
+          - label: gallery
+            name: gallery
+            widget: list
+            fields:
+              - { label: Image, name: image, widget: image }

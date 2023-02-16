@@ -32,12 +32,12 @@ const Footer = () => {
             <a className="pl-2" href="tel:9003016500">9003016500</a>
           </h4>
           <ul className='grid grid-cols-6 gap-4 text-white text-lg'>
-            <li className='flex items-center justify-center p-4 w-12 h-12 rounded-full border-2 border-white border-dotted hover:bg-white hover:text-black'><OutboundLink href='twitter.com' target="_blank"><FontAwesomeIcon icon={faFacebookF} /></OutboundLink></li>
-            <li className='flex items-center justify-center p-4 w-12 h-12 rounded-full border-2 border-white border-dotted hover:bg-white hover:text-black'><OutboundLink href='twitter.com' target="_blank"><FontAwesomeIcon icon={faTwitter} /></OutboundLink></li>
-            <li className='flex items-center justify-center p-4 w-12 h-12 rounded-full border-2 border-white border-dotted hover:bg-white hover:text-black'><OutboundLink href='twitter.com' target="_blank"><FontAwesomeIcon icon={faInstagram} /></OutboundLink></li>
-            <li className='flex items-center justify-center p-4 w-12 h-12 rounded-full border-2 border-white border-dotted hover:bg-white hover:text-black'><OutboundLink href='twitter.com' target="_blank"><FontAwesomeIcon icon={faYoutube} /></OutboundLink></li>
-            <li className='flex items-center justify-center p-4 w-12 h-12 rounded-full border-2 border-white border-dotted hover:bg-white hover:text-black'><OutboundLink href='twitter.com' target="_blank"><FontAwesomeIcon icon={faLinkedinIn} /></OutboundLink></li>
-            <li className='flex items-center justify-center p-4 w-12 h-12 rounded-full border-2 border-white border-dotted hover:bg-white hover:text-black'><OutboundLink href='twitter.com' target="_blank"><FontAwesomeIcon icon={faPinterestP} /></OutboundLink></li>
+            <li><OutboundLink href='twitter.com' target="_blank" className='flex items-center justify-center p-4 w-12 h-12 rounded-full border-2 border-white border-dotted hover:bg-white hover:text-black'><FontAwesomeIcon icon={faFacebookF} /></OutboundLink></li>
+            <li><OutboundLink href='twitter.com' target="_blank" className='flex items-center justify-center p-4 w-12 h-12 rounded-full border-2 border-white border-dotted hover:bg-white hover:text-black'><FontAwesomeIcon icon={faTwitter} /></OutboundLink></li>
+            <li><OutboundLink href='twitter.com' target="_blank" className='flex items-center justify-center p-4 w-12 h-12 rounded-full border-2 border-white border-dotted hover:bg-white hover:text-black'><FontAwesomeIcon icon={faInstagram} /></OutboundLink></li>
+            <li><OutboundLink href='twitter.com' target="_blank" className='flex items-center justify-center p-4 w-12 h-12 rounded-full border-2 border-white border-dotted hover:bg-white hover:text-black'><FontAwesomeIcon icon={faYoutube} /></OutboundLink></li>
+            <li><OutboundLink href='twitter.com' target="_blank" className='flex items-center justify-center p-4 w-12 h-12 rounded-full border-2 border-white border-dotted hover:bg-white hover:text-black'><FontAwesomeIcon icon={faLinkedinIn} /></OutboundLink></li>
+            <li><OutboundLink href='twitter.com' target="_blank" className='flex items-center justify-center p-4 w-12 h-12 rounded-full border-2 border-white border-dotted hover:bg-white hover:text-black'><FontAwesomeIcon icon={faPinterestP} /></OutboundLink></li>
           </ul>
           <small className='text-white'>COPYRIGHT © {year} HOUSEFULLEVENTS</small>
         </div>
