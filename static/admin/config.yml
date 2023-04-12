@@ -131,7 +131,6 @@ collections:
           - { label: Description, name: description }
   - label: services-page
     name: services
-    create: true
     files:
       - label: banner
         name: banner
