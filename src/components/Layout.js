@@ -1,82 +1,77 @@
-import 'fontsource-open-sans'
+/** @jsx jsx */
+import { useState } from 'react'
+import { jsx } from "theme-ui"
+import { useStaticQuery, graphql } from "gatsby"
 
-import { withPrefix } from 'gatsby'
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Helmet } from 'react-helmet'
+import Header from "./header"
+import Logo from "./logo"
+import Navigation from "./navigation"
 
-import Footer from '../components/Footer'
-import Navbar from '../components/Navbar'
+import "../assets/scss/style.scss"
+import Footer from "./footer"
 
-import useSiteMetadata from '../queries/site-metadata'
-
-import './all.css'
+const query = graphql`
+  query LayoutQuery {
+    site {
+      siteMetadata {
+        siteTitle: title
+      }
+    }
+    siteSearchIndex {
+      index
+    }
+  }
+`
 
 const Layout = ({ children }) => {
-  const { color } = useSiteMetadata()
+  const { site } = useStaticQuery(query)
+  const { siteTitle } = site.siteMetadata
+  const [loading, setLoading] = useState(true);
+  setTimeout(() => {
+    setLoading(false);
+  }, 1000)
+
+  const Preloader = () => {
+    return (
+      <div className="tsl-preloader">
+        <div className='loading-spinner'>
+          <div className="preloader-spin-1"></div>
+          <div className="preloader-spin-2"></div>
+        </div>
+      </div>
+    )
+  }
 
   return (
-    <>
-      <Helmet>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="HandheldFriendly" content="True" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-        <link
-          rel="alternate"
-          type="application/rss+xml"
-          href={`${withPrefix('/')}rss.xml`}
-        />
-
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href={`${withPrefix('/')}img/apple-touch-icon.png`}
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          href={`${withPrefix('/')}img/favicon-32x32.png`}
-          sizes="32x32"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          href={`${withPrefix('/')}img/favicon-16x16.png`}
-          sizes="16x16"
-        />
-
-        <link
-          rel="mask-icon"
-          href={`${withPrefix('/')}img/safari-pinned-tab.svg`}
-          color="#ff4400"
-        />
-        <link rel="manifest" href="/manifest.webmanifest" />
-
-        <meta name="theme-color" content={color} />
-        <meta name="msapplication-navbutton-color" content={color} />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta
-          name="apple-mobile-web-app-status-bar-style"
-          content="black-translucent"
-        />
-        <meta name="msapplication-TileColor" content={color} />
-      </Helmet>
-
-      <div className="mx-auto antialiased">
-        <Navbar />
-
+    loading ?
+      <Preloader />
+      :
+      <div className="primary-container">
+        <Header>
+          <div className='md:(grid grid-cols-2) flex flex-row gap-x-3 text-center place-items-center container mx-auto md:px-8 px-5 justify-between'>
+            <Logo title={siteTitle} />
+            <div sx={layoutStyle.nav}>
+              <Navigation />
+            </div>
+          </div>
+        </Header>
         <main>{children}</main>
-
         <Footer />
       </div>
-    </>
   )
 }
 
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
-
 export default Layout
+
+const layoutStyle = {
+  appearance: {
+    display: ["none", "none", "none", "flex"],
+    alignItems: "center",
+    gap: 4,
+  },
+  nav: {
+    display: "flex",
+    alignItems: "center",
+    gap: 4,
+  },
+}

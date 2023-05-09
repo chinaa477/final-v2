@@ -1,0 +1,33 @@
+{
+  "rightDescription": "Users reported better learning <br/> outcomes.",
+  "leftPercentage": "90%",
+  "heading": "TESTIMONIALS",
+  "subHeading": "Student's Feedback",
+  "aboutHeadng": "People Love To Learn With Us",
+  "leftDescription": "Students Completed Course <br/> Successfully",
+  "rightPercentage": "9/10",
+  "testmonial": [
+    {
+      "rating": "4",
+      "description": "\"aute elit anim. Ea minim consequat nisi voluptate quis do. Pariatur aute cillum laboris qui Lorem duis veniam qui commodo exercitation veniam deserunt excepteur fugiat. Reprehenderit commodo id deserunt aliquip elit commodo ea cillum labore laboris pariatur consectetur aliqua incididunt.Career Development Teja Kumar Web Developer \"",
+      "studentImage": "https://via.placeholder.com/60x60",
+      "studentName": "Teja Kumar",
+      "courseName": "Web Developer"
+    },
+    {
+      "rating": "4.5",
+      "description": "\"aute elit anim. Ea minim consequat nisi voluptate quis do. Pariatur aute cillum laboris qui Lorem duis veniam qui commodo exercitation veniam deserunt excepteur fugiat. Reprehenderit commodo id deserunt aliquip elit commodo ea cillum labore laboris pariatur consectetur aliqua incididunt.Career Development Teja Kumar Web Developer \"",
+      "studentImage": "https://via.placeholder.com/60x60",
+      "studentName": "Teja Kumar",
+      "courseName": "Web Developer"
+    },
+    {
+      "courseName": "Web Developer",
+      "studentName": "Teja Kumar",
+      "studentImage": "https://via.placeholder.com/60x60",
+      "description": "\"aute elit anim. Ea minim consequat nisi voluptate quis do. Pariatur aute cillum laboris qui Lorem duis veniam qui commodo exercitation veniam deserunt excepteur fugiat. Reprehenderit commodo id deserunt aliquip elit commodo ea cillum labore laboris pariatur consectetur aliqua incididunt.Career Development Teja Kumar Web Developer \"",
+      "rating": "5"
+    }
+  ],
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet, venenatis dictum et nec."
+}

@@ -1,4 +1,0 @@
----
-templateKey: home
-description: banner
----

@@ -1,14 +1,41 @@
-import { GatsbySeo } from 'gatsby-plugin-next-seo'
-import React from 'react'
+import React from "react"
+import { Link } from "gatsby"
+import { RiArrowLeftSLine, RiBugLine, RiSkullLine } from "react-icons/ri"
 
-import Layout from '../components/Layout'
+import Seo from "../components/seo"
+import Layout from "../components/layout"
 
-const NotFoundPage = () => (
-  <Layout>
-    <GatsbySeo title="404: Not found" />
-    <h1>404: Not Found</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+const NotFound = () => (
+  <Layout className="not-found-page">
+    <Seo title="Page not found" />
+    <div
+      className="wrapper"
+      style={{
+        textAlign: "center",
+      }}
+    >
+      <header>
+        <RiSkullLine
+          style={{
+            fontSize: "128px",
+            color: "var(--primary-color)",
+          }}
+        />
+        <h1>Oops we did not expect that to happen</h1>
+        <p>
+          Have you wondered into the unknow. Let us help you, Please take a look
+          at below options
+        </p>
+      </header>
+      <Link to="/" className="button">
+        <RiArrowLeftSLine className="icon -left" />
+        Back to Homepage
+      </Link>
+      <Link to="/contact" className="button -outline">
+        Report this <RiBugLine className="icon -right" />
+      </Link>
+    </div>
   </Layout>
 )
 
-export default NotFoundPage
+export default NotFound

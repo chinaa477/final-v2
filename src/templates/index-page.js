@@ -1,107 +1,78 @@
-import { graphql, Link } from 'gatsby'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import { GatsbySeo } from 'gatsby-plugin-next-seo'
-import React from 'react'
-import PropTypes from 'prop-types'
+/** @jsx jsx */
+import { jsx } from "theme-ui"
+import { graphql } from "gatsby"
 
-import Layout from '../components/Layout'
-import Banner from '../components/home/Banner'
-import About from '../components/home/About'
-import OurServices from '../components/home/OurServices'
-import Divider from '../components/home/Divider'
-import Contact from '../components/home/Contact'
-
-const IndexPage = ({ data: { postsAllMarkdownRemark: { edges: posts } } }) => (
-  <Layout>
-    <GatsbySeo title={`Starter Homepage`} description={`Gatsby starter with netlify CMS and TailwindCSS`} />
-    <section>
-      <div className='pt-32 grid grid-cols-1 items-center w-full mx-auto'>
-        <Banner />
-      </div>
-    </section>
-    <About />
-    <OurServices />
-    <Divider />
-    <Contact />
-    {/* <div className="lg:flex space-x-0 lg:space-x-6 mb-16">
-      <div className="w-full lg:w-1/2">
-        {posts.map(
-          ({
-            node: {
-              fields: { slug },
-              frontmatter: { title, description, featuredimage },
-            },
-          }) => (
-            <div
-              key={slug}
-              className="rounded w-full flex flex-col lg:flex-row mb-5"
-            >
-              <Link to={slug}>
-                <GatsbyImage
-                  image={getImage(featuredimage)}
-                  alt={title}
-                  title={title}
-                  className="block lg:block rounded-md h-32 m-4 lg:m-0"
-                />
-              </Link>
-              <div className="bg-white rounded px-4">
-                <Link to={slug}>
-                  <h3 className="text-gray-800 font-semibold text-lg lg:text-xl mb-2">
-                    {title}
-                  </h3>
-                </Link>
-                <p className="block lg:hidden p-2 pt-1 text-sm text-gray-600">
-                  {description}
-                </p>
-              </div>
-            </div>
-          )
-        )}
-      </div>
-    </div> */}
-  </Layout>
-)
-
-IndexPage.propTypes = {
-  data: PropTypes.shape({
-    postsAllMarkdownRemark: PropTypes.shape({
-      edges: PropTypes.arrayOf(PropTypes.object),
-    }),
-  }),
-}
-
-export default IndexPage
+import Layout from "../components/layout"
+import Seo from "../components/seo"
+import Banner from "../components/home/Banner"
+import Strategy from "../components/home/Strategy"
+import ContactSection from "../components/common/ContactSection"
+import HomeCourses from "../components/home/HomeCourses"
+import Testimonial from "../components/common/Testimonial"
 
 export const pageQuery = graphql`
-  query IndexPageTemplate {
-    postsAllMarkdownRemark: allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
-      skip: 0
-      limit: 5
-      filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
+  query HomeQuery($id: String!) {
+    markdownRemark(id: { eq: $id }) {
+      id
+      html
+      frontmatter {
+        title
+        tagline
+        featuredImage {
+          childImageSharp {
+            gatsbyImageData(layout: CONSTRAINED, width: 585, height: 439)
+          }
+        }
+        cta {
+          ctaText
+          ctaLink
+        }
+      }
+    }
+    courses: allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___title] }
+      filter: { frontmatter: { template: { eq: "blog-post" } } }
+      limit: 3
     ) {
       edges {
         node {
+          id
+          excerpt(pruneLength: 250)
           frontmatter {
+            slug
             title
-            description
-            featuredimage {
+            featuredImage {
               childImageSharp {
-                gatsbyImageData(
-                  height: 120
-                  width: 350
-                  placeholder: BLURRED
-                  formats: [AUTO, WEBP, AVIF]
-                  layout: CONSTRAINED
-                )
+                gatsbyImageData(layout: CONSTRAINED, width: 345, height: 260)
               }
             }
-          }
-          fields {
-            slug
+            instructorImage
+            instructorName
+            courseLevel
+            courseName
+            studentsCount
+            totalLessons
+            totalTime
+            shortDescription
           }
         }
       }
     }
   }
 `
+
+const HomePage = ({ data }) => {
+  const { courses } = data // data.markdownRemark holds your post data
+  return (
+    <Layout>
+      <Seo />
+      <Banner />
+      <Strategy />
+      <HomeCourses data={courses} />
+      <ContactSection />
+      <Testimonial />
+    </Layout>
+  )
+}
+
+export default HomePage

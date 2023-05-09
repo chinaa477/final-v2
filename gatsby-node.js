@@ -1,94 +1,88 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/node-apis/
- */
+const path = require("path")
+const { createFilePath } = require(`gatsby-source-filesystem`)
 
-const _ = require('lodash')
-const path = require('path')
-const { createFilePath } = require('gatsby-source-filesystem')
-const webpack = require(`webpack`)
-
-exports.createPages = ({ actions, graphql }) => {
+exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
 
-  return graphql(`
+  const blogList = path.resolve(`./src/templates/blog-list.js`)
+
+  const result = await graphql(`
     {
-      allMarkdownRemark(limit: 1000) {
+      allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___title] }) {
         edges {
           node {
             id
-            fields {
-              slug
-            }
             frontmatter {
-              templateKey
+              slug
+              template
+              title
             }
           }
         }
       }
     }
-  `).then(result => {
-    if (result.errors) {
-      result.errors.forEach(e => console.error(e.toString()))
+  `)
 
-      return Promise.reject(result.errors)
+  // Handle errors
+  if (result.errors) {
+    reporter.panicOnBuild(`Error while running GraphQL query.`)
+    return
+  }
+
+  // Create markdown pages
+  const posts = result.data.allMarkdownRemark.edges
+  let blogPostsCount = 0
+
+  posts.forEach((post, index) => {
+    const id = post.node.id
+    const previous = index === posts.length - 1 ? null : posts[index + 1].node
+    const next = index === 0 ? null : posts[index - 1].node
+
+    createPage({
+      path: post.node.frontmatter.slug,
+      component: path.resolve(
+        `src/templates/${String(post.node.frontmatter.template)}.js`
+      ),
+      // additional data can be passed via context
+      context: {
+        id,
+        previous,
+        next,
+      },
+    })
+
+    // Count blog posts.
+    if (post.node.frontmatter.template === "blog-post") {
+      blogPostsCount++
     }
+  })
 
-    const posts = result.data.allMarkdownRemark.edges
-    posts.forEach(edge => {
-      const id = edge.node.id
-      createPage({
-        path: edge.node.fields.slug,
-        component: path.resolve(
-          `src/templates/${String(edge.node.frontmatter.templateKey)}.js`
-        ),
-        context: {
-          id,
-        },
-      })
-    })
+  // Create blog-list pages
+  const postsPerPage = 9
+  const numPages = Math.ceil(blogPostsCount / postsPerPage)
 
+  Array.from({ length: numPages }).forEach((_, i) => {
     createPage({
-      path: '/',
-      component: path.resolve(
-        `src/templates/index-page.js`
-      )
-    })
-    createPage({
-      path: '/about-us',
-      component: path.resolve(
-        `src/templates/about-us.js`
-      )
-    })
-    createPage({
-      path: '/services',
-      component: path.resolve(
-        `src/templates/services.js`
-      )
+      path: i === 0 ? `/courses` : `/courses/${i + 1}`,
+      component: blogList,
+      context: {
+        limit: postsPerPage,
+        skip: i * postsPerPage,
+        numPages,
+        currentPage: i + 1,
+      },
     })
   })
 }
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
+exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
-
   if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
+    const slug = createFilePath({ node, getNode, basePath: `pages` })
     createNodeField({
-      name: `slug`,
       node,
-      value,
+      name: `slug`,
+      value: slug,
     })
   }
-}
-
-exports.onCreateWebpackConfig = ({ actions }) => {
-  actions.setWebpackConfig({
-    plugins: [
-      new webpack.IgnorePlugin({
-        resourceRegExp: /^netlify-identity-widget$/,
-      }),
-    ],
-  })
 }

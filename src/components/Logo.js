@@ -1,23 +1,22 @@
+import React from "react"
+import { Link } from "gatsby"
 import { StaticImage } from 'gatsby-plugin-image'
 import PropTypes from 'prop-types'
-import React from 'react'
 
-export default function Logo({ title, className }) {
-  return (
-    <StaticImage
-      src="../images/logo.png"
-      formats={['auto', 'webp', 'avif']}
-      alt={title}
-      title={title}
-      className={className}
-      placeholder="blurred"
-      width={270}
-      height={80}
-    />
-  )
-}
+const Logo = props => (
+  <div className="site-logo">
+    <Link to={`/`} className="px-2 lg:px-0">
+      <StaticImage
+        src="../assets/images/logo.png"
+        formats={['auto', 'webp', 'avif']}
+        alt={props.title}
+        title={props.title}
+        placeholder="blurred"
+        width={250}
+        height={56}
+      />
+    </Link>
+  </div>
+)
 
-Logo.propTypes = {
-  title: PropTypes.string.isRequired,
-  className: PropTypes.string,
-}
+export default Logo

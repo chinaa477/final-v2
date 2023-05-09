@@ -1,65 +1,93 @@
 import React from "react"
-import { Autoplay, EffectCreative, Parallax } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import "swiper/css/navigation";
-import bannerData from '../../../content/home/banner.json'
-const data = bannerData.banner;
-
-const sliderSettings = {
-  slidesPerView: '1',
-  loop: true,
-  parallax: true,
-  effect: "creative",
-  creativeEffect: {
-    prev: {
-      translate: [0, 0, -400],
-    },
-    next: {
-      translate: ["100%", 0, 0],
-    },
-  },
-  autoplay: {
-    delay: 5000,
-  },
-};
+import StyledBanner from "./style/banner"
+import { HiArrowNarrowRight } from 'react-icons/hi'
+import { StaticImage } from 'gatsby-plugin-image'
+import { Link } from "gatsby"
+import data from '../../content/home/banner.json'
+import features from '../../content/home/banner-features.json'
+import { FiBook } from "react-icons/fi"
+import { BsPeople } from "react-icons/bs"
+import { VscRemoteExplorer } from "react-icons/vsc"
+import { RiUserVoiceLine } from "react-icons/ri"
 
 const Banner = () => {
-  return (
-    <div>
-      <Swiper modules={[Autoplay, EffectCreative, Parallax]} {...sliderSettings} className="banner-slider">
-        {data.map((data, index) => (
-          <SwiperSlide key={`banner-${index}`}>
-            <div className="relative z-10 container mx-auto">
-              <div
-                className="w-full h-[600px]"
-                style={{
-                  background: `linear-gradient(to right,RGBA(0,0,0,.2) 0%,RGBA(0,0,0,.5) 100%) 58% 11% / cover no-repeat,url(${data.image}) 58% 11% / cover no-repeat`,
-                }}
-              />
-              <div className="absolute z-20 top-[20%] left-[2rem] right-[2rem] text-white" data-swiper-parallax="-1000">
-                <div className="text-5xl font-semibold leading-normal" >
-                  {data.title}
+    return (
+        <StyledBanner>
+            <div className="hero">
+                <div className="left">
+                    <div className="content">
+                        <h1>{data.heading}</h1>
+                        <p>{data.subHeading}</p>
+                        <Link
+                            className="cta"
+                            to={data.cta}
+                        >
+                            Find Courses <HiArrowNarrowRight />
+                        </Link>
+                    </div>
                 </div>
-                <div className="text-xl font-normal leading-normal pt-4">
-                  {data.description}
+                <div className="right">
+                    <img src={data.image} alt={data.alt} title={data.imageTitle} />
+                    <div className="banner-shape-1">
+                        <StaticImage
+                            src="../../assets/images/home/banner-shapes/shape1.png"
+                            formats={['auto', 'webp', 'avif']}
+                            alt="Career Development"
+                            title="Career Development"
+                            quality={100}
+                            placeholder="none"
+                        />
+                    </div>
+                    <div className="banner-shape-2">
+                        <StaticImage
+                            src="../../assets/images/home/banner-shapes/shape2.png"
+                            formats={['auto', 'webp', 'avif']}
+                            alt="Career Development"
+                            title="Career Development"
+                            quality={100}
+                            placeholder="none"
+                        />
+                    </div>
+                    <div className="banner-shape-3">
+                        <StaticImage
+                            src="../../assets/images/home/banner-shapes/shape3.png"
+                            formats={['auto', 'webp', 'avif']}
+                            alt="Career Development"
+                            title="Career Development"
+                            quality={100}
+                            placeholder="blurred"
+                            layout="constrained"
+                            loading="eager"
+                        />
+                    </div>
                 </div>
-              </div>
             </div>
-            <div
-              data-swiper-parallax={"23%"}
-              className="slider-bg absolute top-0 left-0 w-full h-[600px]"
-              style={{
-                backgroundImage: `url(${data.image})`,
-                backgroundPosition: 'center',
-                backgroundSize: 'cover'
-              }}
-            />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </div>
-  )
+            <div className="feature-area">
+                <div className="wrapper">
+                    <div className="main-grid">
+                        {features.bannerFeatures.map((data, index) => (
+                            <div className="feature-box" key={index}>
+                                <div className="icon">
+                                    {index === 0 && <FiBook />}
+                                    {index === 1 && <BsPeople />}
+                                    {index === 2 && <VscRemoteExplorer />}
+                                    {index === 3 && <RiUserVoiceLine />}
+                                </div>
+                                <div className="content">
+                                    <h5>
+                                        <span
+                                            dangerouslySetInnerHTML={{ __html: data.title }}
+                                        />
+                                    </h5>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </StyledBanner>
+    )
 };
 
 export default Banner
+
